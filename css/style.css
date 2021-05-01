@@ -545,6 +545,7 @@ header .container {
 }
 .project:hover,
 .project:focus {
+  box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -571,6 +572,7 @@ a {
   text-decoration: none;
 }
 .des-proj {
+  overflow: hidden;
   position: relative;
 }
 .des-proj::before {
@@ -581,29 +583,32 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
+  opacity: 1;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .dec-card {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   font-weight: 400;
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
   color: #fff;
-  opacity: 0;
+  opacity: 1;
   width: 322px;
 }
 .project-link:hover .des-proj::before,
 .project-link:focus .des-proj::before {
-  opacity: 1;
+  transform: translateY(0%);
 }
 .project-link:hover .des-proj .dec-card,
 .project-link:focus .des-proj .dec-card {
-  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 /* Modalka */
 .back-drop-appl {
